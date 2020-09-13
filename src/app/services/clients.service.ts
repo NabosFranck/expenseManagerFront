@@ -5,5 +5,12 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ClientsService {
+  url = "http://localhost:8000"
+  constructor( private http: HttpClient) { }
   
+  getClient(id){
+   return this.http.get(this.url+'/apip/clients/'+id)
+    
+  }
+
 }

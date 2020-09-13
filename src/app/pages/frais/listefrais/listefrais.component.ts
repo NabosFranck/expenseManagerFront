@@ -18,11 +18,17 @@ export class ListefraisComponent implements OnInit {
     this.auth.getToken()
         .subscribe(
           (data) => {
+            console.log(data)
            this.idCom =data.getPayload().id;
           }
         ), 
         this.frais.getFrais(this.idCom).subscribe((Response: any)=> {
           this.FraisTabs = Response;
+          this.FraisTabs.forEach(function(value){
+            if (value.etat == true){
+              value.etat = "validé";
+            }else {value.etat = "en attente"}
+          });
         });      
       }
          

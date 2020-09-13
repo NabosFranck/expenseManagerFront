@@ -1,1 +1,35 @@
-<p *ngFor="let FraisTab of FraisTabs ">{{ FraisTab.trajet }} {{ FraisTab.repas }} €</p>
+
+<div class ="liste">
+    <div class = "li">
+        <p>Etat </p>
+        <ul >
+            <li *ngFor="let FraisTab of FraisTabs ">{{ FraisTab.etat }}</li>
+        </ul>
+    </div>
+    <div class = "li">
+        <p>Trajet</p>
+        <ul>
+            <li *ngFor="let FraisTab of FraisTabs ">{{ FraisTab.trajet }} €</li>
+        </ul>
+    </div>
+    <div class = "li">
+        <p>Repas</p>
+        <ul>
+            <li *ngFor="let FraisTab of FraisTabs ">{{ FraisTab.repas }} €</li>
+        </ul>
+    </div>
+    <div class = "li">
+        <p>Nuit</p>
+        <ul>
+            <li *ngFor="let FraisTab of FraisTabs ">{{ FraisTab.nuit }} €</li>
+        </ul>
+    </div>
+    <div class = "li">
+        <p>Societe</p>
+        <ul>
+            <li *ngFor="let FraisTab of FraisTabs ">{{ FraisTab.client }}</li>
+        </ul>
+    </div>
+</div>
+
+
