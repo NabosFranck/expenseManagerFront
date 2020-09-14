@@ -8,9 +8,8 @@ export class ClientsService {
   url = "http://localhost:8000"
   constructor( private http: HttpClient) { }
   
-  getClient(id){
-   return this.http.get(this.url+'/apip/clients/'+id)
-    
+  getClient(){
+   return this.http.get(this.url+'/apip/clients')
   }
 
 }

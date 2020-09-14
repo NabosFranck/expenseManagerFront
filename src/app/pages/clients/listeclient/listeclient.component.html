@@ -1,1 +1,8 @@
-<p>listeclient works!</p>
+<table>
+    <tr>
+        <td>Sociétés</td>
+    </tr>
+    <tr *ngFor="let clientTab of clientTabs ">
+        <td>{{clientTab.nom}}</td>
+    </tr>
+</table>

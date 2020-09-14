@@ -12,6 +12,7 @@ import { ErrorComponent } from './partials/error/error.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NbPasswordAuthStrategy, NbAuthModule, NbAuthJWTToken } from '@nebular/auth';
 import {  IntercepteurApiProvider } from './interceptors/intercepteur-api.interceptor';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,8 @@ import {  IntercepteurApiProvider } from './interceptors/intercepteur-api.interc
     
   ],
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,

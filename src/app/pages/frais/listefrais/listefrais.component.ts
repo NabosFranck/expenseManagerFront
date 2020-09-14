@@ -15,21 +15,38 @@ export class ListefraisComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.auth.getToken()
-        .subscribe(
-          (data) => {
-            console.log(data)
-           this.idCom =data.getPayload().id;
-          }
-        ), 
-        this.frais.getFrais(this.idCom).subscribe((Response: any)=> {
-          this.FraisTabs = Response;
-          this.FraisTabs.forEach(function(value){
-            if (value.etat == true){
-              value.etat = "validé";
-            }else {value.etat = "en attente"}
-          });
-        });      
-      }
+    this.auth.getToken().subscribe((data) => {
+      this.idCom =data.getPayload().id;
+      console.log(this.idCom)
+    }), 
+
+    this.frais.getFrais(this.idCom).subscribe((Response: any)=> {
+
+      let FraisTabs = [];
+
+      Response['Frais'].forEach(element => {
+
+        if (element.etat == true){
+          FraisTabs.push({
+            etat : "validé",
+            trajet : element.trajet,
+            repas : element.repas,
+            nuit : element.nuit,
+            client : element.nomclient,
+          })
+        }else{
+          FraisTabs.push({
+            etat : "en attente",
+            trajet : element.trajet,
+            repas : element.repas,
+            nuit : element.nuit,
+            client : element.nomclient,
+          })
+        }
+        this.FraisTabs = FraisTabs;
+      });
+    
+    });      
+  }
          
 }

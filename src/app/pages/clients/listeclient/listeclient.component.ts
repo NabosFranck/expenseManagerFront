@@ -8,14 +8,21 @@ import { ClientsService } from 'src/app/services/clients.service';
   styleUrls: ['./listeclient.component.scss']
 })
 export class ListeclientComponent implements OnInit {
-  idClient : any;
-  ClientsTabs: any;
+  clientTabs: any;
+  
+  
   constructor(private client: ClientsService, private auth: NbAuthService) { }
 
   ngOnInit(): void {
-    this.idClient = this.client.getClient(1).subscribe((Response: any)=>{
-    console.log(Response.societe);
-    });
+    this.client.getClient().subscribe((Response:any) =>{
+      let clientTabs = [];
+      Response['Client'].forEach(element => {
+        clientTabs.push({
+          nom : element.societe,
+        })
+        this.clientTabs= clientTabs;
+        console.log(this.clientTabs)
+      })
+    })
   }
-
 }

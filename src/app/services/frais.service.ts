@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class FraisService {
-  url = "http://localhost:8000"
+  url = "http://localhost:8000";
   constructor( private http: HttpClient) { }
 
   getFrais(id){

@@ -1,1 +1,26 @@
-<p>ajoutfrais works!</p>
+<form>
+    <label>
+      Trajet:
+      <input type="number">
+    </label>
+    <label>
+      Repas:
+      <input type="number">
+    </label>
+    <label>
+      Nuit:
+        <input type="number"> 
+    </label>
+    <label>
+        Etat:
+        <input type="checkbox"> 
+    </label>
+    <label>
+        Societe:
+        <select id="client-select">
+            <option *ngFor="let clientTab of clientTabs " value="{{clientTab.id}}">{{clientTab.nom}}</option>
+        </select>
+    </label>
+    <button type = "button" (click)="RecupFrais($event)">Envoyer</button>
+  </form>
+  
