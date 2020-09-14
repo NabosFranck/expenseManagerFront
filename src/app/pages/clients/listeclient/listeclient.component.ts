@@ -16,6 +16,7 @@ export class ListeclientComponent implements OnInit {
   ngOnInit(): void {
     this.client.getClient().subscribe((Response:any) =>{
       let clientTabs = [];
+      console.log(Response);
       Response['Client'].forEach(element => {
         clientTabs.push({
           nom : element.societe,
