@@ -33,11 +33,11 @@ export class IntercepteurApiInterceptor implements HttpInterceptor {
         setHeaders: { Authorization: 'Bearer ' + this.token}
       });
       
-      //----------- On retourne la requetes cloner et modifié  -----------
+      //----------- On retourne la requete clonée et modifiée  -----------
       return next.handle(clone);
     }else{
       
-      //----------- Si la requetes n'est pas nul est contient email ou password dans hasOwnProperty alors on push le token  -----------
+      //----------- Si la requete n'est pas nulle, contient email et password dans le body, alors on rajoute le token (pour la requete apip/login_check)  -----------
       if (request.body.hasOwnProperty('email') && request.body.hasOwnProperty('password')){
         //----------- On clone la requete pour travailler dessus -----------
         const clone = request.clone({
@@ -46,10 +46,10 @@ export class IntercepteurApiInterceptor implements HttpInterceptor {
             "password": request.body['password'] 
           }
         });
-        //----------- On retourne la requetes cloner et modifié  -----------
+        //----------- On retourne la requete clonée et modifiée  -----------
         return next.handle(clone);
 
-       //----------- Si la requetes n'est pas nul on déclare le général -----------
+       //----------- Si la requete n'est pas nulle on déclare le général -----------
       }else{
 
         this.authService.getToken()

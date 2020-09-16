@@ -11,15 +11,19 @@
       Nuit:
         <input type="number"> 
     </label>
-    <label>
+    <label class="etat">
         Etat:
-        <input type="checkbox"> 
+        <input class ="check"type="checkbox"> 
     </label>
     <label>
         Societe:
         <select id="client-select">
             <option *ngFor="let clientTab of clientTabs " value="{{clientTab.id}}">{{clientTab.nom}}</option>
         </select>
+    </label>
+    <label>
+      Justificatifs:
+        <input type="text"> 
     </label>
     <button type = "button" (click)="RecupFrais($event)">Envoyer</button>
   </form>

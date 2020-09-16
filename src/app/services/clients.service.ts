@@ -12,4 +12,9 @@ export class ClientsService {
    return this.http.get(this.url+'/apip/clients')
   }
 
+  postClient(newClient){
+    console.log(newClient);
+    return this.http.post(this.url+'/apip/clients', newClient);
+  }
+
 }

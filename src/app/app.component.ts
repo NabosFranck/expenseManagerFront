@@ -17,7 +17,7 @@ export class AppComponent {
 
     /**
      * Ici on se met en écoute de chaque évènement du router
-     * Dès qu'un évènement correspond à une fin de nvigation on regarde l'url pour
+     * Dès qu'un évènement correspond à une fin de navigation on regarde l'url pour
      * Modifier l'état de la variable et afficher cacher des partie de notre layout
      */
     router.events.subscribe(

@@ -11,7 +11,7 @@ import { FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     FraisRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
   ]
 })
 export class FraisModule { }

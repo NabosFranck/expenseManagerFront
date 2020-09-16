@@ -1,8 +1,8 @@
 <table>
-    <tr>
-        <td>Sociétés</td>
+    <tr class=containerTitre>
+        <td class ="titre">Sociétés</td>
     </tr>
-    <tr *ngFor="let clientTab of clientTabs ">
-        <td>{{clientTab.nom}}</td>
+    <tr class="containerSociete" *ngFor="let clientTab of clientTabs ">
+        <td class="societe">{{clientTab.nom}}</td>
     </tr>
 </table>

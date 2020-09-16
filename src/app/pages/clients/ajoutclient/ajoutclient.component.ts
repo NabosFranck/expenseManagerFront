@@ -10,21 +10,23 @@ import { ClientsService } from 'src/app/services/clients.service';
 export class AjoutclientComponent implements OnInit {
 
   clientTabs: any;
-  
+  tabAjouter:{ societe: string}
   
   constructor(private client: ClientsService, private auth: NbAuthService) { }
 
   ngOnInit(): void {
-    this.client.getClient().subscribe((Response:any) =>{
-      let clientTabs = [];
-      Response['Client'].forEach(element => {
-        clientTabs.push({
-          nom : element.societe,
-        })
-        this.clientTabs= clientTabs;
-        console.log(this.clientTabs)
-      })
-    })
+    
   }
-
+  RecupClient(event){
+      
+    this.tabAjouter = {
+      societe: event["toElement"].form[0].value,
+    }
+    this.client.postClient(this.tabAjouter).subscribe((Response)=>{
+      console.log(Response);
+    });  
+  }  
+  refresh(){
+    window.location.reload();
+  }
 }
