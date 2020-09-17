@@ -18,7 +18,7 @@ export class IntercepteurApiInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     if(request.body === null){
 
-      //----------- Appel du service authService pour récupéré le token et le mettre dans la variables token -----------
+      //----------- Appel du service authService pour  [REQUETE GET] -----------
       this.authService.getToken()
         .subscribe(
           (data) => {
@@ -37,7 +37,7 @@ export class IntercepteurApiInterceptor implements HttpInterceptor {
       return next.handle(clone);
     }else{
       
-      //----------- Si la requete n'est pas nulle, contient email et password dans le body, alors on rajoute le token (pour la requete apip/login_check)  -----------
+      //----------- POST VERS apip/login_check  -----------
       if (request.body.hasOwnProperty('email') && request.body.hasOwnProperty('password')){
         //----------- On clone la requete pour travailler dessus -----------
         const clone = request.clone({
@@ -49,7 +49,7 @@ export class IntercepteurApiInterceptor implements HttpInterceptor {
         //----------- On retourne la requete clonée et modifiée  -----------
         return next.handle(clone);
 
-       //----------- Si la requete n'est pas nulle on déclare le général -----------
+       //----------- REQUETE POST/UPDATE/DELETE/GET{id}-----------
       }else{
 
         this.authService.getToken()
@@ -65,7 +65,7 @@ export class IntercepteurApiInterceptor implements HttpInterceptor {
       const clone = request.clone({
         setHeaders: { Authorization: 'Bearer ' + this.token}
       });
-        //----------- On retourne la requetes cloner et modifié  -----------
+        //----------- On retourne la requetes clonée et modifiée  -----------
         return next.handle(clone);
       }
     

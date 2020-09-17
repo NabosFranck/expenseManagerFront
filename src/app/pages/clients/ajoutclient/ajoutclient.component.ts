@@ -9,7 +9,7 @@ import { ClientsService } from 'src/app/services/clients.service';
 })
 export class AjoutclientComponent implements OnInit {
 
-  clientTabs: any;
+  
   tabAjouter:{ societe: string}
   
   constructor(private client: ClientsService, private auth: NbAuthService) { }
@@ -25,8 +25,10 @@ export class AjoutclientComponent implements OnInit {
     this.client.postClient(this.tabAjouter).subscribe((Response)=>{
       console.log(Response);
     });  
-  }  
+  }
+
   refresh(){
     window.location.reload();
   }
+
 }

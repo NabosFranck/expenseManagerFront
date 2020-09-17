@@ -11,11 +11,11 @@ export class FraisService {
 
   getFrais(id){
    return this.http.get(this.url+'/apip/commercial/frais/'+id)
-    
   }
 
   postFrais(newFrais){
     console.log(newFrais)
     return this.http.post(this.url+'/apip/frais', newFrais );
   }
+  
 }

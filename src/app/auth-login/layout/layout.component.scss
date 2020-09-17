@@ -6,6 +6,7 @@
   nb-card {
     margin: 0;
     height: calc(100vh - 2 * #{$auth-layout-padding});
+    color: red;
   }
 
   .navigation .link {

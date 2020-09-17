@@ -9,7 +9,7 @@ import { NbAuthService } from '@nebular/auth';
 })
 export class ListefraisComponent implements OnInit {
   idCom : number
-  FraisTabs: any;
+  FraisTabs: object;
   constructor(private frais: FraisService, private auth: NbAuthService) {
       
   }
@@ -20,7 +20,7 @@ export class ListefraisComponent implements OnInit {
       console.log(this.idCom)
     }), 
 
-    this.frais.getFrais(this.idCom).subscribe((Response: any)=> {
+    this.frais.getFrais(this.idCom).subscribe((Response: object)=> {
 
       let FraisTabs = [];
 
